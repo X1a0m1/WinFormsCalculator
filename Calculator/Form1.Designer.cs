@@ -43,7 +43,7 @@
             fiveButton = new Button();
             sixButton = new Button();
             multiplicationButton = new Button();
-            textBox1 = new TextBox();
+            outputTextBox = new TextBox();
             sevenButton = new Button();
             eightButton = new Button();
             nineButton = new Button();
@@ -109,7 +109,7 @@
             tableLayoutPanel1.Controls.Add(fiveButton, 1, 2);
             tableLayoutPanel1.Controls.Add(sixButton, 2, 2);
             tableLayoutPanel1.Controls.Add(multiplicationButton, 3, 2);
-            tableLayoutPanel1.Controls.Add(textBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(outputTextBox, 0, 0);
             tableLayoutPanel1.Controls.Add(sevenButton, 0, 1);
             tableLayoutPanel1.Controls.Add(eightButton, 1, 1);
             tableLayoutPanel1.Controls.Add(nineButton, 2, 1);
@@ -304,16 +304,16 @@
             // 
             // textBox1
             // 
-            textBox1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            tableLayoutPanel1.SetColumnSpan(textBox1, 5);
-            textBox1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(3, 15);
-            textBox1.MaxLength = 16;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(344, 39);
-            textBox1.TabIndex = 0;
-            textBox1.TextAlign = HorizontalAlignment.Right;
-            textBox1.TextChanged += TextBox1_TextChanged;
+            outputTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.SetColumnSpan(outputTextBox, 5);
+            outputTextBox.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            outputTextBox.Location = new Point(3, 15);
+            outputTextBox.MaxLength = 16;
+            outputTextBox.Name = "textBox1";
+            outputTextBox.Size = new Size(344, 39);
+            outputTextBox.TabIndex = 0;
+            outputTextBox.TextAlign = HorizontalAlignment.Right;
+            outputTextBox.TextChanged += OutputTextBox_TextChanged;
             // 
             // sevenButton
             // 
@@ -438,7 +438,7 @@
             label2.Name = "label2";
             label2.Size = new Size(106, 20);
             label2.TabIndex = 1;
-            label2.Text = "Operator:";
+            label2.Text = "Operation:";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label3
@@ -518,8 +518,7 @@
             Controls.Add(splitContainer1);
             MinimumSize = new Size(600, 400);
             Name = "Form1";
-            Text = "Calculator";
-            Load += Form1_Load;
+            Text = "Demo Calculator";
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -535,7 +534,7 @@
 
         private SplitContainer splitContainer1;
         private TableLayoutPanel tableLayoutPanel1;
-        private TextBox textBox1;
+        private TextBox outputTextBox;
         private Button zeroButton;
         private Button changeSignButton;
         private Button decimalButton;

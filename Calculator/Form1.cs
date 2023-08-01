@@ -10,24 +10,21 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        textBox1.Text = _result.ToString();
+        outputTextBox.Text = _result.ToString();
 
         UpdateDebugValues();
     }
 
-    private void Form1_Load(object sender, EventArgs e)
-    {
-    }
     private void NumButton_Click(object sender, EventArgs e)
     {
-        if (textBox1.MaxLength > textBox1.Text.Length)
+        if (outputTextBox.MaxLength > outputTextBox.Text.Length)
         {
             if (!_inputActive)
             {
-                textBox1.Clear();
+                outputTextBox.Clear();
                 _inputActive = true;
             }
-            textBox1.Text += (sender as Button)!.Text;
+            outputTextBox.Text += (sender as Button)!.Text;
         }
 
         UpdateDebugValues();
@@ -39,8 +36,7 @@ public partial class Form1 : Form
         _result = 0;
         _operation = null;
         _secondOperand = 0;
-        textBox1.Clear();
-        textBox1.Text = _result.ToString();
+        outputTextBox.Text = _result.ToString();
 
         UpdateDebugValues();
     }
@@ -68,24 +64,32 @@ public partial class Form1 : Form
             _result = Expression.Calculate(_firstOperand, _secondOperand, _operation);
         }
         _operatorActive = false;
-        textBox1.Text = _result.ToString();
+        outputTextBox.Text = _result.ToString();
+        if (_secondOperand == _result)
+        {
+            SetOperand(_result);
+        }
         _inputActive = false;
 
         UpdateDebugValues();
     }
 
-    private void TextBox1_TextChanged(object sender, EventArgs e)
+    private void OutputTextBox_TextChanged(object sender, EventArgs e)
     {
-        if (int.TryParse(textBox1.Text, out int value))
+        if (int.TryParse(outputTextBox.Text, out int value))
         {
-            if (_operatorActive)
-            {
-                _secondOperand = value;
-            }
-            else
-            {
-                _firstOperand = value;
-            }
+            SetOperand(value);
+        }
+    }
+    private void SetOperand(int value)
+    {
+        if (_operatorActive)
+        {
+            _secondOperand = value;
+        }
+        else
+        {
+            _firstOperand = value;
         }
     }
 
