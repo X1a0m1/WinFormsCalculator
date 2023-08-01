@@ -158,15 +158,15 @@
             // decimalButton
             // 
             decimalButton.Dock = DockStyle.Fill;
-            decimalButton.Enabled = false;
             decimalButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             decimalButton.Location = new Point(145, 285);
             decimalButton.Margin = new Padding(5);
             decimalButton.Name = "decimalButton";
             decimalButton.Size = new Size(60, 61);
             decimalButton.TabIndex = 18;
-            decimalButton.Text = ".";
+            decimalButton.Text = ",";
             decimalButton.UseVisualStyleBackColor = true;
+            decimalButton.Click += DecimalButton_Click;
             // 
             // additionButton
             // 

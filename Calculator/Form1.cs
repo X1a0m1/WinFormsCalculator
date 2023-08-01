@@ -35,6 +35,28 @@ public partial class Form1 : Form
 
         UpdateDebugValues();
     }
+    private void DecimalButton_Click(object? sender, EventArgs e)
+    {
+        string currentText = outputTextBox.Text;
+        string buttonText = ",";
+        currentText = currentText.Trim('-');
+        if (_inputActive)
+        {
+            if (outputTextBox.MaxLength > currentText.Length &&
+                !currentText.Contains(buttonText))
+            {
+                outputTextBox.Text += buttonText;
+            }
+        }
+        else
+        {
+            outputTextBox.Clear();
+            _inputActive = true;
+            outputTextBox.Text += buttonText;
+        }
+
+        UpdateDebugValues();
+    }
     private void ClearButton_Click(object sender, EventArgs e)
     {
         _operatorActive = false;
