@@ -302,14 +302,14 @@
             multiplicationButton.UseVisualStyleBackColor = true;
             multiplicationButton.Click += OperButton_Click;
             // 
-            // textBox1
+            // outputTextBox
             // 
             outputTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.SetColumnSpan(outputTextBox, 5);
             outputTextBox.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             outputTextBox.Location = new Point(3, 15);
             outputTextBox.MaxLength = 16;
-            outputTextBox.Name = "textBox1";
+            outputTextBox.Name = "outputTextBox";
             outputTextBox.Size = new Size(344, 39);
             outputTextBox.TabIndex = 0;
             outputTextBox.TextAlign = HorizontalAlignment.Right;
@@ -357,7 +357,6 @@
             // divisionButton
             // 
             divisionButton.Dock = DockStyle.Fill;
-            divisionButton.Enabled = false;
             divisionButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             divisionButton.Location = new Point(215, 75);
             divisionButton.Margin = new Padding(5);
@@ -367,6 +366,7 @@
             divisionButton.Tag = Operation.Divide;
             divisionButton.Text = "/";
             divisionButton.UseVisualStyleBackColor = true;
+            divisionButton.Click += OperButton_Click;
             // 
             // clearButton
             // 
