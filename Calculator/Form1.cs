@@ -57,6 +57,19 @@ public partial class Form1 : Form
 
         UpdateDebugValues();
     }
+    private void ChangeSignButton_Click(object? sender, EventArgs e)
+    {
+        string currentText = outputTextBox.Text;
+        if (currentText[0] == '-')
+        {
+            currentText = currentText[1..];
+        }
+        else
+        {
+            currentText = currentText.Insert(0, "-");
+        }
+        outputTextBox.Text = currentText;
+    }
     private void ClearButton_Click(object sender, EventArgs e)
     {
         _operatorActive = false;
@@ -139,6 +152,8 @@ public partial class Form1 : Form
         divisionButton.Enabled = false;
 
         equalsButton.Enabled = false;
+        decimalButton.Enabled = false;
+        changeSignButton.Enabled = false;
 
         oneButton.Enabled = false;
         twoButton.Enabled = false;
@@ -159,6 +174,8 @@ public partial class Form1 : Form
         divisionButton.Enabled = true;
 
         equalsButton.Enabled = true;
+        decimalButton.Enabled = true;
+        changeSignButton.Enabled = true;
 
         oneButton.Enabled = true;
         twoButton.Enabled = true;

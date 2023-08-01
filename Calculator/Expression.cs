@@ -20,7 +20,7 @@ internal static class Expression
             Operation.Add => leftOperand + rightOperand,
             Operation.Subtract => leftOperand - rightOperand,
             Operation.Multiply => leftOperand * rightOperand,
-            Operation.Divide => leftOperand / rightOperand,
+            Operation.Divide => rightOperand != 0 ? leftOperand / rightOperand : throw new DivideByZeroException(),
             _ => throw new ArgumentException("Unknown operation."),
         };
     }

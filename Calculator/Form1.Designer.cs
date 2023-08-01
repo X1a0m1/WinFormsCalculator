@@ -145,7 +145,6 @@
             // changeSignButton
             // 
             changeSignButton.Dock = DockStyle.Fill;
-            changeSignButton.Enabled = false;
             changeSignButton.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             changeSignButton.Location = new Point(75, 285);
             changeSignButton.Margin = new Padding(5);
@@ -154,6 +153,7 @@
             changeSignButton.TabIndex = 17;
             changeSignButton.Text = "+/-";
             changeSignButton.UseVisualStyleBackColor = true;
+            changeSignButton.Click += ChangeSignButton_Click;
             // 
             // decimalButton
             // 
