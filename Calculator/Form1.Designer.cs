@@ -164,7 +164,10 @@
             decimalButton.Name = "decimalButton";
             decimalButton.Size = new Size(60, 61);
             decimalButton.TabIndex = 18;
-            decimalButton.Text = ",";
+            decimalButton.Text = System.Globalization.CultureInfo.CurrentCulture
+                                                                 .NumberFormat
+                                                                 .CurrencyDecimalSeparator[0]
+                                                                 .ToString();
             decimalButton.UseVisualStyleBackColor = true;
             decimalButton.Click += DecimalButton_Click;
             // 

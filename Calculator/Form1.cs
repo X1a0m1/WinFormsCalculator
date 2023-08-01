@@ -38,7 +38,7 @@ public partial class Form1 : Form
     private void DecimalButton_Click(object? sender, EventArgs e)
     {
         string currentText = outputTextBox.Text;
-        string buttonText = ",";
+        string buttonText = (sender as Button)!.Text;
         currentText = currentText.Trim('-');
         if (_inputActive)
         {
